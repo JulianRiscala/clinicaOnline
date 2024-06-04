@@ -1,0 +1,30 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Añade un índice z alto para asegurar que la barra esté por encima de otros elementos */
+    height: 65px;
+    justify-content: space-between;
+}
+
+.header mat-toolbar {
+    display: flex;
+}
+
+.mat-toolbar-row,.mat-toolbar-single-row{
+    background-color:#65f183c0;
+}
+
+.userContainer .label {
+    margin: 10%;
+    background-color: aqua;
+    font-size: large;
+} 
+
+.userConteiner button {
+    margin-right: 20px; /* Añade margen a la derecha de cada botón */
+}
+
+.userConteiner button:first-child {
+    margin-left: 50px; /* Añade margen a la izquierda del primer botón */
+}

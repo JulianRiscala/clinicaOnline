@@ -1,0 +1,12 @@
+<mat-toolbar class="header">
+    <div>
+        <button mat-flat-button routerLink="/" >Home</button>
+        <!-- <button mat-flat-button routerLink="/chat">Chat</button> -->
+    </div>  
+    <div class="userConteiner">
+        <button mat-flat-button *ngIf="!currentUser" routerLink="/log-in">Log in</button>
+        <label class ="label" *ngIf="currentUser">{{ currentUser }}</label>
+        <button mat-flat-button *ngIf="currentUser" routerLink="/registro">Registrar</button>
+        <button mat-flat-button *ngIf="currentUser" (click)="logOut()">Log out</button>
+    </div>
+</mat-toolbar>

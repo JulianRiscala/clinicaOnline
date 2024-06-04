@@ -1,0 +1,53 @@
+<div class="form">
+    <div class="form__container">
+        <h1>Registrarse</h1>
+        <form [formGroup]="form" (ngSubmit)="signUp()">
+            <div>
+                <mat-form-field>
+                    <mat-label>Nombres</mat-label>
+                    <input matInput formControlName="names" />
+                    <mat-error>Debe ingresar un nombre</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput formControlName="lastname" />
+                    <mat-error>Debe ingresar un apellido</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" />
+                    <mat-error *ngIf="isEmailValid as message">{{ message }}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"/>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{ hide ? "visibility_off " : "visibility" }}</mat-icon>
+                    </button>
+                    <mat-error>Debe ingresar una contraseña</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-flat-button color="accent" type="submit">Crear cuenta</button>
+            </div>
+        </form>
+        <hr>
+        <span class="small-text log-in-redirect">
+            ¿Ya tienes cuenta? <a routerLink="/log-in">Logearse</a>
+        </span>
+        <hr>
+        <!-- <span class="small-text log-in-redirect">
+            <a routerLink="/about-me">Sobre mí</a></span> -->
+    </div>
+</div>

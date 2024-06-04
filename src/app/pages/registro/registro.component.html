@@ -1,0 +1,150 @@
+<div class="campo">
+    <mat-form-field>
+        <label>Tipo</label>
+        <mat-select (selectionChange)="onTipoChange($event.value)">
+            @for (tipo of tiposPeliculas; track tiposPeliculas) {
+            <mat-option [value]="tipo.value">{{tipo.viewValue}}</mat-option>
+            }
+        </mat-select>
+        <mat-error>Debe ingresar un tipo de película</mat-error>
+    </mat-form-field>
+</div>
+
+<ng-template #form1>
+    <div class="actorFormConteiner">
+        <div class="actorForm">
+            <h1>form especialista</h1>
+            <form [formGroup]="formGroup1" (ngSubmit)="subirEspecialista()">
+                <div class="campoFechas">
+                    <div class="campo">
+                        <mat-form-field>
+                            <label>Nombre</label>
+                            <input matInput formControlName="nombre">
+                            <mat-error> Debe ingresar un nombre </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="campo">
+                        <mat-form-field>
+                            <label>Apellido</label>
+                            <input matInput formControlName="apellido">
+                            <mat-error> Debe ingresar un apellido </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="campoFechas">
+                    <div class="campo">
+                        <mat-form-field>
+                            <label>Edad</label>
+                            <input matInput formControlName="edad">
+                            <mat-error> Debe ingresar una edad </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="campo">
+                        <mat-form-field>
+                            <label>DNI</label>
+                            <input matInput formControlName="dni">
+                            <mat-error> Debe ingresar un DNI sin puntos </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="campoFechas">
+                    <div class="campo">
+                        <mat-form-field>
+                            <label>Especialidad</label>
+                            <input matInput formControlName="especialidad">
+                            <mat-error> Debe ingresar una especialidad </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="campo">
+                        <mat-form-field>
+                            <label>Foto (URL)</label>
+                            <input matInput formControlName="img1">
+                            <mat-error> Debe ingresar una foto </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="campoFechas">
+                    <div class="campo">
+                        <mat-form-field>
+                            <label>Mail de Contacto</label>
+                            <input matInput formControlName="mail">
+                            <mat-error *ngIf="isEmailValid as message">{{ message }}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="campo">
+                        <mat-form-field>
+                            <label>Contraseña</label>
+                            <input matInput formControlName="password">
+                            <mat-error> Debe ingresar una contraseña </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="button">
+                    <button mat-stroked-button color="warn" type="submit">Crear cuenta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #form2>
+    <div class="actorFormConteiner">
+        <div class="actorForm">
+            <h1>form paciente</h1>
+            <form [formGroup]="formGroup2" (ngSubmit)="subirEspecialista()">
+                <!-- <div class="campo">
+                    <mat-form-field>
+                        <label>Nombre (*)</label>
+                        <input matInput formControlName="nombre">
+                        <mat-error > Debe ingresar un nombre </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="campo">
+                    <mat-form-field>
+                        <label>Apellido (*)</label>
+                        <input matInput formControlName="apellido">
+                        <mat-error > Debe ingresar un apellido </mat-error>
+                    </mat-form-field>
+                </div> -->
+                <!-- <div class="campo">
+                    <mat-form-field>
+                        <label>Alias</label>
+                        <input matInput formControlName="alias">
+                    </mat-form-field>
+                </div>
+                <div class="campo">
+                    <mat-form-field>
+                        <label>Mail de Contacto</label>
+                        <input matInput formControlName="mailContacto">
+                        <mat-error *ngIf="isEmailValid as message">{{ message }}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="campoFechas">
+                    <mat-form-field>
+                        <label>Fecha de nacimiento (*)</label>
+                        <input matInput [matDatepicker]="picker1" formControlName="fechaNacimiento">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker> <mat-error > Debe ingresar una fecha </mat-error>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <label>Fecha de fallecimiento</label>
+                        <input matInput [matDatepicker]="picker2" formControlName="fechaFallecimiento">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                      </mat-form-field>
+                </div> -->
+                <!-- <div class="campo">
+                    <mat-form-field>
+                        <label>Pais de origen</label>
+                        <label matInput formControlName="pais"></label>
+                    </mat-form-field>
+                </div> -->
+                <div class="button">
+                    <button mat-stroked-button color="warn" type="submit">Crear cuenta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<div *ngIf="selectedTipo === 0; then form1 else form2"></div>

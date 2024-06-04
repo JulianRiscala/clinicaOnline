@@ -1,0 +1,25 @@
+.actorFormConteiner {
+  display: flex; /* Utiliza flexbox para el diseño */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  width: 100%;
+}
+
+.actorForm {
+  width: 80%;
+}
+
+.campoFechas {
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+  width: 100%;
+}
+
+.campo {
+  flex-grow: 1; /* Permite que los elementos ocupen todo el espacio disponible */
+}
+
+.campo mat-form-field {
+  width: 100%;
+}
